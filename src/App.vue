@@ -9,7 +9,7 @@
         </div>
       </div>
       <form @submit.prevent="sendMessage" class="flex">
-        <input v-model="userInput" type="text" placeholder="Type a message..." class="flex-grow p-2 rounded-l-lg border-2 border-blue-500 outline-none focus:border-blue-700">
+        <input v-model="userInput" type="text" placeholder="Type a message..." class="w-12 sm:w-auto flex-grow p-2 rounded-l-lg border-2 border-blue-500 outline-none focus:border-blue-700">
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-r-lg">
           Send
         </button>
