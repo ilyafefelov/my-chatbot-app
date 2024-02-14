@@ -19,7 +19,7 @@
             </h1>
             <h2 class="text-3xl text-pretty text-pink-100 text-center">
                 <span v-glitch class="italic text-orange-300 text-xl font-light  hover:font-mono hover:font-bold hover">w/ </span>
-                <span v-glitch class="text-cyan-900 font-medium"> {{ name }}</span>
+                <span v-glitch class="text-cyan-900 font-medium text-3xl font-mono tracking-[-.1em] "> {{ name }}</span>
             </h2>
         </div>
     </div>
