@@ -78,3 +78,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* animation directives */
+
+@keyframes glitch-effect {
+  5% {
+    text-shadow: 1px 1px 0 red;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: -1px -2px 0 blue;
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    text-shadow: -2px -2px 0 green;
+    transform: translate(2px, -2px);
+  }
+  60% {
+    text-shadow: 2px 1px 0 purple;
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    text-shadow: 1px -1px 0 orange;
+    transform: translate(2px, -2px);
+  }
+  95% {
+    text-shadow: -1px 2px 0 pink;
+    transform: translate(-2px, 2px);
+  }
+}
+.glitch {
+  animation: glitch-effect 1s infinite ease-out;
+}
