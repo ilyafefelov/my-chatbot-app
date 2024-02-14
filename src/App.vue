@@ -4,7 +4,7 @@
       <Hero />
       <ChatBox class="mt-3"/>
     </div>
-    <Footer class="mt-auto pt-2" />
+    <Footer class="mt-auto pt-2 -mb-4" />
   </div>
 </template>
 
