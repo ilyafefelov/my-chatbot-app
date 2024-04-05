@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-sky-300 p-8 overflow-x-clip">
-    <div class="flex flex-col flex-grow items-center justify-center mt-[12vh]">
+    <div class="flex flex-col flex-grow items-center justify-center sm:mt-[12vh]">
       <Hero />
       <ChatBox :showChat class="mt-3"/>
     </div>
