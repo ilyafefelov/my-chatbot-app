@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center mb-4 rounded-lg">
+    <div class="flex flex-col items-center justify-center mb-6 rounded-lg">
         <picture v-glitch>
             <source
                 srcset="@/assets/1500x500.jpg"
@@ -10,7 +10,7 @@
                 alt="My Image"
                 class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 h-auto
                 min-w-[200px] 
-                rounded-lg mx-auto hover:shadow-md transition-shadow"
+                rounded-lg mx-auto hover:shadow-md transition-shadow animate-once"
             />
         </picture>
         <div class="cursor-default">

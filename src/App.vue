@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-sky-300 p-8 overflow-x-clip">
-    <div class="flex flex-col flex-grow items-center justify-center mt-[20vh]">
+    <div class="flex flex-col flex-grow items-center justify-center mt-[12vh]">
       <Hero />
-      <ChatBox class="mt-3"/>
+      <ChatBox :showChat class="mt-3"/>
     </div>
     <Footer class="mt-auto pt-2 -mb-4" />
   </div>
@@ -13,7 +13,20 @@ import './index.css'; // Import Tailwind CSS
 import Hero from '@/components/Hero.vue'
 import ChatBox from '@/components/ChatBox.vue'
 import Footer from '@/components/Footer.vue'
+import { ref, onMounted, watch, nextTick } from 'vue';
 
+//show hide chat
+const showChat = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    showChat.value = true
+  }, 2000)
+  setTimeout(() => {
+    showChat.value = false
+    console.log('showChat 10', showChat.value)
+  }, 7000)
+})
 
 </script>
 

@@ -1,6 +1,30 @@
 <template>
   <div class="w-full max-w-md p-4 bg-white bg-opacity-30 border-t-2 border-t-white/20  shadow-2xl rounded-lg">
-    <div ref="messageList" class="flex shadow-inner shadow-yellow-900/5 flex-col min-h-48 max-h-[80vh] mb-4 p-2 bg-orange-100/50 rounded-lg">
+    <div ref="messageList" class="flex text-black shadow-inner shadow-yellow-900/5 flex-col min-h-48 max-h-[80vh] mb-4 p-2 bg-orange-100/50 rounded-lg">
+
+      <!-- trasnsition on appear with vertical slide-in animation from the bottom of parent bind -->
+      <transition 
+        appear
+        enter-from-class="transform -translate-y-full opacity-0"
+        enter-active-class="transition-all duration-1000"
+        enter-to-class="translate-y-0 opacity-100"
+        leave-active-class="transition ease-in duration-300"
+        leave-to-class="transform -translate-y-full opacity-0"
+        :duration="{ enter: 600, leave: 300 }"
+      >
+        <div 
+          v-if="showChat" 
+          class="font-bold text-center text-xl text-orange-100 border-2 border-orange-500/90
+                p-2 rounded-lg shadow-inner shadow-yellow-900/5 bg-orange-300/50 
+                [text-shadow:1px_0px_2px_black] [backdrop-filter:blur(20px)]
+                bg-blur-lg transition-all duration-1000 ease-out"
+        >
+          Chat with me!🤖
+        </div> 
+
+      </transition>
+
+      
       <transition name="fade">
         <div v-if="!messages.length" 
             class="border-2 transition-all flex items-center
@@ -38,15 +62,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch, nextTick } from 'vue';
-import { sendMessageToWit } from '@/services/chatServices.js';
+import { sendMessageToWit } from '../services/chatServices';
+import { defineProps } from 'vue';
+import { onMounted } from 'vue';
 
 const userInput = ref('');
 const messages = ref([]);
 const isLoading = ref(false);
 const botResponse = ref(null);
 const messageList = ref(null);
+
+const { showChat = true } = defineProps<{
+  showChat?: Boolean,
+}>();
+
 
 const handleSendMessage = async () => {
     // Check if the user input is empty or if a request is in progress
@@ -58,8 +89,8 @@ const handleSendMessage = async () => {
 
     const response = await sendMessageToWit(userInput.value);
     messages.value.push({ text: userInput.value, sender: 'user' });
-
     botResponse.value = response?.response?.text;
+
     if (botResponse.value) {
         setTimeout(() => {
             messages.value.push({ text: botResponse.value, sender: 'bot' });
