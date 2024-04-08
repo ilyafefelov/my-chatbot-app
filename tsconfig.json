@@ -2,11 +2,13 @@
     "compilerOptions": {
         "forceConsistentCasingInFileNames": true,
         "strict": true,
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
-            "@/*": ["./src/*"]
-        }
+            "@/*": ["src/*"],
+            "services/*": ["src/services/*"]
+        },
+        "lib": ["ES2015", "DOM", "ESNext"],
     },
-    "include": ["src/**/*"],
+    "include": ["src", "types"],
     "exclude": []
 }
